@@ -2,6 +2,7 @@
 #define BOARD_TYPE_H
 
 #include <iostream>
+#include <vector>
 
 class boardType {
    public:
@@ -10,6 +11,7 @@ class boardType {
     boardType(std::string);
     void findZero();
     void potentialMoves();
+    void isSolvable(); // function to determine if initial state is solvable
 
     // overload the stream insertion operator
     friend std::ostream& operator<<(std::ostream& os, const boardType& dt);
@@ -41,6 +43,23 @@ std::ostream& operator<<(std::ostream& os, const boardType& thisBoard) {
         std::cout << std::endl;
     }
     return os;
+}
+
+void boardType::isSolvable(){
+
+    // count number of inversions, if even then is solvable, if odd then not
+    int initialBoard[9];
+    int counter = 0;
+    for(int i=0; i < 3; i++){ // converting board to 1D array to bypass checking 2D array
+        for(int j=0; j < 3; j++){
+            initialBoard[counter] = board[i][j];
+            counter++;
+        }
+    }
+    
+    // for loop to count number of inversions
+    
+
 }
 
 void boardType::findZero(){
