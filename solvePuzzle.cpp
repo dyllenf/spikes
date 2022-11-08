@@ -23,6 +23,7 @@ int main(int argc, char* argv[]) {
     std::cout << goalBoard << std::endl;
 
     initialBoard.potentialMoves();
+    std::cout << "hello world" << std::endl;
 
     return 0;
 }
