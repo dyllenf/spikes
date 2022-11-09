@@ -1,2 +1,9 @@
 a.exe
+<<<<<<< HEAD
 solvePuzzle.exe
+=======
+board.exe
+solvePuzzle.exe
+.vscode/tasks.json
+board.exe
+>>>>>>> spikesOrigin/main

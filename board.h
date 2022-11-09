@@ -58,8 +58,7 @@ void boardType::isSolvable(){
     }
     
     // for loop to count number of inversions
-    std::cout << "hello";
-
+    
 
 }
 
