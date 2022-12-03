@@ -11,7 +11,7 @@ class boardType {
     boardType(std::string);
     void findZero();
     void potentialMoves();
-    void isSolvable(); // function to determine if initial state is solvable
+    bool isSolvable(); // function to determine if initial state is solvable
 
     // overload the stream insertion operator
     friend std::ostream& operator<<(std::ostream& os, const boardType& dt);
@@ -45,19 +45,41 @@ std::ostream& operator<<(std::ostream& os, const boardType& thisBoard) {
     return os;
 }
 
-void boardType::isSolvable(){
+// SPIKE B
+bool boardType::isSolvable(){
 
-    // count number of inversions, if even then is solvable, if odd then not
-    int initialBoard[9];
     int counter = 0;
-    for(int i=0; i < 3; i++){ // converting board to 1D array to bypass checking 2D array
-        for(int j=0; j < 3; j++){
-            initialBoard[counter] = board[i][j];
-            counter++;
+    int current = 0;
+    int temp = 0;
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++) // First nested for loop to iterate through the board
+        {
+            temp = j; // Used to reset the tricky nature of a 2d array
+            current = board[i][j];
+            for (int m = i; m < 3; m++) // Second nested for loop to iterate through the rest of the board after current
+            {
+                for (int k = temp; k < 3; k++)
+                {
+                    if (board[m][k] != 0 && current > board[m][k])
+                    {
+                        counter++;
+                    }
+                }
+                temp = 0;
+            }
         }
     }
+
+    if (counter % 2 == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
     
-    // for loop to count number of inversions
     
 
 }

@@ -22,7 +22,12 @@ int main(int argc, char* argv[]) {
     std::cout << "goal: " << std::endl;
     std::cout << goalBoard << std::endl;
 
-    initialBoard.isSolvable();
+    if(initialBoard.isSolvable() == true){
+        std::cout << "Board is solvable" << std::endl;
+    }
+    else{
+        std::cout << "Board not solvable" << std::endl;
+    }
     //initialBoard.potentialMoves();
 
     return 0;
